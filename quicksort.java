@@ -5,9 +5,11 @@ public class quicksort
             int pivot = arr[low];
             int i= low;
             int j= high;
+            System.out.println(low);
+            System.out.println(high);
             while(i<j)
             {
-                  while(arr[i]<= pivot && i<=high-1)
+                  while(arr[i]<= pivot && i<high)
                   {
                        i++; 
                   }
@@ -38,7 +40,7 @@ public class quicksort
       }
       public static void main(String args[])
       {
-            int arr[]={33,44,99,23,4572,883,1,228,67};
+            int arr[]={5,9,3,1,2};
             QuickSort(arr,0,arr.length-1);
             for(int i=0;i< arr.length;i++)
             {
