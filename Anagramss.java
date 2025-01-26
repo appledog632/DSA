@@ -1,36 +1,30 @@
 import java.util.Arrays;
 public class Anagramss
 {
-    public static void anagram(String s1, String s2)
-    {
-        s1.toLowerCase();
-        s2.toLowerCase();
-        if(s1.length() == s2.length ())
-        {
-            char[] str1 = s1.toCharArray();
-            char[] str2 = s2.toCharArray();
-            Arrays.sort(str1);
-            Arrays.sort(str2);
-            if(Arrays.equals(str1,str2))
-            {
-                System.out.println("yes they are  anagrams");
-                return;
+    public boolean isAnagram(String s, String t) {
+        int p =s.length();
+        int q =t.length();
+        if(p == q){
+            int[] c = new int[26];
+            for(int i=0; i< p ; i++ ){
+                c[s.charAt(i) - 'a']++;
+                c[t.charAt(i) - 'a']--;
             }
-            else
-            {
-                System.out.println("Not anagrams ");
-                return;
+            for(int i=0 ;i< 26 ;i++){
+                if(c[i]!=0){
+                    return false;
+                }
             }
+            return true;
         }
-        else
-        {
-            System.out.println("NOt anagrams of each other");
-            return;
+        else{
+            return false;
         }
     }
+    
 	public static void main(String[] args) {
 		String str1 = "race";
 		String str2 ="care";
-		anagram(str1,str2);
+		System.out.println(isAnagram(str1,str2));
 	}
 }
